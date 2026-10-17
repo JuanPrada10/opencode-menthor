@@ -1,0 +1,218 @@
+/* ==========================================================================
+   TOKENS DE DISEÑO — única fuente de verdad
+   color · tipografía · espaciado (rejilla 4pt) · radios · sombras · movimiento
+   Los componentes sólo consumen tokens: nada de valores mágicos sueltos.
+   --------------------------------------------------------------------------
+   Identidad: dark theme azul/violeta. La elevación se comunica subiendo la
+   luminosidad de la superficie y añadiendo un filo superior iluminado, no
+   apilando sombras negras planas.
+   ========================================================================== */
+:root {
+  color-scheme: dark;
+
+  /* ---------- Lienzo y superficies ---------- */
+  --bg-canvas: #080c15;
+  --bg-canvas-deep: #05080e;
+  --bg-surface: #0e1627;
+  --bg-surface-elevated: #141f38;
+  --bg-surface-raised: #182640;
+  --bg-surface-hover: #1b2947;
+  --bg-surface-active: #21325b;
+  --bg-inset: #0a101c;
+  --bg-topbar: rgba(8, 12, 21, 0.72);
+
+  /* ---------- Bordes ---------- */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-light: rgba(255, 255, 255, 0.13);
+  --border-strong: rgba(255, 255, 255, 0.24);
+  --border-focus: #7cb0ff;
+
+  /* ---------- Marca (el 10% de acento de la interfaz) ---------- */
+  --brand-deep: #7c3aed;              /* violeta de marca: gradientes y brillos */
+  --brand-primary: #2563eb;           /* relleno sólido: AA con texto blanco */
+  --brand-primary-hover: #1d4ed8;
+  --brand-primary-press: #1e40af;
+  --brand-accent: #60a5fa;            /* iconos, bordes y acentos sobre oscuro */
+  --brand-clarity: #9dc2fd;           /* enlaces y etiquetas de énfasis */
+  --brand-soft: rgba(59, 130, 246, 0.12);
+  --brand-soft-strong: rgba(59, 130, 246, 0.2);
+  --brand-border: rgba(59, 130, 246, 0.32);
+  --brand-glow: rgba(37, 99, 235, 0.42);
+  --on-brand: #ffffff;
+
+  /* ---------- Estados (siempre con icono + texto, nunca sólo color) ---------- */
+  --color-emerald: #10b981;
+  --color-emerald-text: #34d399;
+  --color-emerald-soft: rgba(16, 185, 129, 0.13);
+  --color-emerald-border: rgba(16, 185, 129, 0.36);
+  --color-emerald-ink: #04241c;
+
+  --color-amber: #f59e0b;
+  --color-amber-text: #fbbf24;
+  --color-amber-soft: rgba(245, 158, 11, 0.13);
+  --color-amber-border: rgba(245, 158, 11, 0.36);
+
+  --color-purple: #8b5cf6;
+  --color-purple-text: #bb9dff;
+  --color-purple-soft: rgba(139, 92, 246, 0.14);
+  --color-purple-border: rgba(139, 92, 246, 0.36);
+
+  --color-danger: #f87171;
+
+  /* ---------- Texto (contraste AA verificado sobre las superficies) ---------- */
+  --text-strong: #ffffff;
+  --text-main: #f1f5f9;
+  --text-body: #cbd5e1;
+  --text-muted: #a3b1c6;
+  --text-dim: #8b9ab2;
+
+  /* ---------- Tipografía ---------- */
+  --font-display: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Fira Code", ui-monospace, "JetBrains Mono", Consolas, monospace;
+
+  --fs-2xs: 0.6875rem;  /* 11px · etiquetas micro */
+  --fs-xs: 0.75rem;     /* 12px · badges */
+  --fs-sm: 0.8125rem;   /* 13px · código y secundario */
+  --fs-md: 0.875rem;    /* 14px · interfaz base */
+  --fs-lg: 0.9375rem;   /* 15px · cuerpo de lectura */
+  --fs-xl: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --fs-2xl: clamp(1.1875rem, 1.1rem + 0.5vw, 1.4375rem);
+  --fs-3xl: clamp(1.375rem, 1.22rem + 0.9vw, 1.75rem);
+  --fs-4xl: clamp(1.75rem, 1.42rem + 1.8vw, 2.5rem);
+
+  --lh-tight: 1.15;
+  --lh-snug: 1.4;
+  --lh-base: 1.65;
+  --measure: 68ch;
+  --measure-sm: 54ch;
+
+  /* ---------- Espaciado · rejilla de 4pt ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-stack: clamp(1.25rem, 0.95rem + 1.2vw, 1.875rem); /* ritmo entre tarjetas */
+
+  /* ---------- Radios ---------- */
+  --radius-xs: 5px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-full: 999px;
+
+  /* ---------- Sombras (oscurecidas hacia el azul del lienzo) ---------- */
+  --shadow-xs: 0 1px 2px rgba(3, 7, 17, 0.5);
+  --shadow-sm: 0 8px 18px -14px rgba(3, 7, 17, 0.9);
+  --shadow-md: 0 20px 40px -24px rgba(3, 7, 17, 0.92);
+  --shadow-lg: 0 36px 72px -30px rgba(2, 5, 12, 0.95);
+  --shadow-brand: 0 14px 32px -14px rgba(37, 99, 235, 0.62);
+  --hair-top: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --ring-focus: 0 0 0 3px rgba(59, 130, 246, 0.28);
+
+  /* ---------- Movimiento ---------- */
+  --dur-fast: 130ms;
+  --dur-base: 220ms;
+  --dur-slow: 380ms;
+  --dur-reveal: 620ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  /* ---------- Gradientes y textura ---------- */
+  --grad-brand: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  --grad-hero: linear-gradient(158deg, #12203a 0%, #0e1a2e 52%, #0c1526 100%);
+  --grad-radar: linear-gradient(158deg, #131f38 0%, #0e1627 62%);
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  line-height: var(--lh-base);
+  color: var(--text-body);
+  background-color: var(--bg-canvas);
+  background-image:
+    radial-gradient(circle at 12% 0%, rgba(37, 99, 235, 0.18) 0%, transparent 46%),
+    radial-gradient(circle at 88% 6%, rgba(124, 58, 237, 0.14) 0%, transparent 48%),
+    radial-gradient(circle at 74% 104%, rgba(139, 92, 246, 0.1) 0%, transparent 52%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Grano sutil: da materia al lienzo oscuro sin ensuciar la lectura. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: var(--noise);
+  opacity: 0.03;
+}
+
+/* La retícula técnica sólo aparece con espacio de sobra (no satura en móvil). */
+@media (min-width: 64em) {
+  body {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.016) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.016) 1px, transparent 1px),
+      radial-gradient(circle at 12% 0%, rgba(37, 99, 235, 0.18) 0%, transparent 46%),
+      radial-gradient(circle at 88% 6%, rgba(124, 58, 237, 0.14) 0%, transparent 48%),
+      radial-gradient(circle at 74% 104%, rgba(139, 92, 246, 0.1) 0%, transparent 52%);
+    background-size: 46px 46px, 46px 46px, auto, auto, auto;
+    background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat;
+    background-attachment: scroll, scroll, fixed, fixed, fixed;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+::selection { background: rgba(59, 130, 246, 0.4); color: #fff; }
+
+/* Barra de desplazamiento discreta */
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.14);
+  border: 3px solid transparent;
+  background-clip: content-box;
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.28); background-clip: content-box; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,93 @@
+/* ==========================================================================
+   RESET TIPOGRÁFICO Y CONTENIDO ENRIQUECIDO
+   ========================================================================== */
+h1, h2, h3, h4 {
+  margin: 0;
+  color: var(--text-strong);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+p, li { text-wrap: pretty; }
+ul, ol { margin: 0; padding: 0; }
+li { list-style: none; }
+button, input, select, textarea { font: inherit; color: inherit; }
+code, kbd, pre { font-variant-ligatures: none; }
+svg { display: block; flex-shrink: 0; }
+a { color: var(--brand-clarity); }
+
+/* ==========================================================================
+   .prose — párrafos, listas y pasos
+   Un único bloque da ritmo y jerarquía a la descripción de la tarea, al estado
+   del proyecto y al interior de cada pista.
+   Regla de ritmo: más aire ENTRE bloques que dentro de ellos.
+   ========================================================================== */
+.prose {
+  font-size: var(--fs-lg);
+  line-height: var(--lh-base);
+  color: var(--text-body);
+  overflow-wrap: anywhere;
+}
+
+.prose > * { margin-block: 0; }
+.prose > * + * { margin-block-start: var(--space-3); }
+.prose > :first-child { margin-block-start: 0; }
+.prose > :last-child { margin-block-end: 0; }
+
+.prose h2,
+.prose h3,
+.prose h4 {
+  margin-block-start: var(--space-5);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--text-strong);
+}
+
+.prose .rich-list { padding-left: var(--space-6); }
+.prose .rich-list > li {
+  margin-block-start: var(--space-1);
+  padding-left: var(--space-1);
+}
+.prose ol.rich-list { list-style: decimal; }
+.prose ul.rich-list { list-style: disc; }
+/* El reset global "li { list-style: none }" se aplica DIRECTAMENTE al <li>
+   y anula la lista heredada del <ol>/<ul>; hay que re-declararlo en el <li>. */
+.prose ol.rich-list > li { list-style: decimal; }
+.prose ul.rich-list > li { list-style: disc; }
+.prose ol.rich-list > li::marker { color: var(--brand-accent); font-family: var(--font-mono); font-weight: 700; }
+.prose ul.rich-list > li::marker { color: var(--brand-accent); }
+.prose .rich-list .rich-list { margin-block-start: var(--space-2); padding-left: var(--space-5); }
+.prose .rich-list .rich-list > li { list-style: inherit; }
+.prose .rich-list .rich-list > li::marker { color: var(--text-dim); }
+
+.prose strong, .prose b { color: var(--text-strong); font-weight: 700; }
+.prose em, .prose i { color: var(--text-main); }
+
+.inline-code {
+  padding: 1px var(--space-2);
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius-xs);
+  background: var(--brand-soft);
+  color: var(--brand-clarity);
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  overflow-wrap: anywhere;
+}
+
+/* Bloques de código dentro de prosa o de una pista */
+.prose pre,
+.hint-content pre {
+  margin-block: var(--space-3) 0;
+  padding: var(--space-4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background: var(--bg-canvas-deep);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  color: #e2e8f0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.prose pre:first-child,
+.hint-content pre:first-child { margin-block-start: 0; }

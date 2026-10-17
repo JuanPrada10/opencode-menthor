@@ -1,0 +1,57 @@
+{
+  "name": "opencode-menthor",
+  "version": "0.1.0",
+  "description": "Pedagogical mentor agent & live dashboard for OpenCode. Learn by building real software without the AI coding for you.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juandacor/opencode-menthor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/juandacor/opencode-menthor/issues"
+  },
+  "homepage": "https://github.com/juandacor/opencode-menthor#readme",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prepack": "npm run build",
+    "watch": "tsc -w",
+    "test": "node --test"
+  },
+  "keywords": [
+    "opencode",
+    "plugin",
+    "mentor",
+    "menthor",
+    "learning",
+    "education",
+    "pedagogy",
+    "ai-tutor",
+    "dashboard",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@opencode/plugin": "^2.0.32",
+    "eta": "^3.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "happy-dom": "^21.0.3",
+    "typescript": "^5.7.0"
+  }
+}
